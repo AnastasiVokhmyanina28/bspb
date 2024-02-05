@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class Navbar {
+public interface Navbar {
 
     SelenideElement overviewPrivate = $(By.id("overviewPrivate")).as("Вкладка 'Главная'");
     SelenideElement accounts = $(By.id("accounts")).as("Вкладка 'Счета'");
