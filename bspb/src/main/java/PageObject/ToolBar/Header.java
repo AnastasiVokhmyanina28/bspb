@@ -7,8 +7,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public interface Header {
-    SelenideElement logoutButton = $(By.className("icon-door"));
-
+    SelenideElement logoutButton = $(By.id("icon-door")).as("Выход с сайта");
+    SelenideElement settingsButton = $(By.id("settings-button")).as("Настройки");
 
     default void checkTheButtonDisplay() {
         assertThat(logoutButton.isDisplayed()).as("Пользователь не авторизован").isTrue();
