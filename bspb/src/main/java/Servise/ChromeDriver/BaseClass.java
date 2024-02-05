@@ -1,9 +1,9 @@
 package Servise.ChromeDriver;
 
+import PageObject.AutorizationPage;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -40,9 +40,12 @@ public class BaseClass {
 
 
     @AfterAll
-    public static void close(){
+    public static void close() {
         closeWebDriver();
     }
 
+    public AutorizationPage openLoginPage() {
+        return new AutorizationPage();
+    }
 
 }
