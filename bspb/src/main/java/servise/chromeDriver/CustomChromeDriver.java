@@ -1,4 +1,4 @@
-package Servise.ChromeDriver;
+package servise.chromeDriver;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverProvider;

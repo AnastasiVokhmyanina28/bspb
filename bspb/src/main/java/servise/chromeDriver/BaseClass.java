@@ -1,9 +1,9 @@
-package Servise.ChromeDriver;
+package servise.chromeDriver;
 
-import PageObject.AutorizationPage;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import pageObject.autorizationPage.AutorizationPage;
 
 import java.io.FileInputStream;
 import java.util.Properties;

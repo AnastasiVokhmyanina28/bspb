@@ -1,4 +1,4 @@
-package PageObject.ToolBar;
+package pageObject.toolBar;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
