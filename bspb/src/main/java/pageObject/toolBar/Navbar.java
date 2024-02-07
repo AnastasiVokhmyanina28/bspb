@@ -2,6 +2,7 @@ package pageObject.toolBar;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import pageObject.PaymentsPage;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -15,6 +16,11 @@ public interface Navbar {
     SelenideElement loans = $(By.id("loans")).as("Вкладка 'Кредиты'");
     SelenideElement externalTradeRoom = $(By.id("externalTraderoom")).as("Вкладка 'Валюта'");
     SelenideElement insurance = $(By.id("insurance")).as("Вкладка 'Страхование'");
+
+    default PaymentsPage openThePaymentsTab(){
+        payments.click();
+        return new PaymentsPage();
+    }
 
 
 }

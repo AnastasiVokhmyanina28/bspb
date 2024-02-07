@@ -1,4 +1,4 @@
-package pageObject.person;
+package person;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
