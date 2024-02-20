@@ -7,6 +7,7 @@ import pageObject.toolBar.Header;
 import pageObject.toolBar.Navbar;
 
 import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PaymentsPage implements Header, Navbar {
 
@@ -17,9 +18,14 @@ public class PaymentsPage implements Header, Navbar {
     private final ElementsCollection paymentElements = $$(By.className("vendor-type"));
 
 
-    public HistoryOfOperationsInTheSystemPage openHistory() {
+    public HistoryOfOperationsInTheSystemPage openHistoryPayments() {
         history.click();
         return new HistoryOfOperationsInTheSystemPage();
+    }
+
+    public PaymentsPage checkPageActivity(){
+        assertThat(leftMenu.isDisplayed()).as("Страница 'Платежи и переводы не открыта'").isTrue();
+        return this;
     }
 
 }

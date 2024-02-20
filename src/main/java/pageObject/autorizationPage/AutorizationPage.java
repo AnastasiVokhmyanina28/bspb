@@ -2,7 +2,8 @@ package pageObject.autorizationPage;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import pageObject.person.Person;
+import person.Person;
+
 
 import static com.codeborne.selenide.Selenide.$;
 

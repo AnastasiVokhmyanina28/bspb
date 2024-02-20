@@ -1,8 +1,10 @@
+import data.DateCalculation;
 import org.junit.jupiter.api.Test;
 import pageObject.autorizationPage.AutorizationPage;
 import pageObject.toolBar.Header;
 import pageObject.toolBar.Navbar;
 import servise.chromeDriver.BaseClass;
+
 
 public class HistoryOfOperationsInTheSystemTest extends BaseClass implements Header, Navbar {
 
@@ -12,7 +14,15 @@ public class HistoryOfOperationsInTheSystemTest extends BaseClass implements Hea
         autorization.autorization();
 
         openThePaymentsTab()
-                .openHistory();
+                .checkPageActivity()
+                .openHistoryPayments()
+                .checkPageActivityHistory()
+                .selectBeginningOfPeriod()
+                ;
+
+
+
+
 
 
     }
