@@ -1,7 +1,6 @@
 package calendar;
 
 import com.codeborne.selenide.SelenideElement;
-import data.DateCalculation;
 import pageObject.HistoryOfOperationsInTheSystemPage;
 
 import java.time.LocalDate;
@@ -19,30 +18,46 @@ public class Calendar {
         this.textInput = textInput;
     }
 
-    /** метод, который вернет элемент  новой даты. а именно год. .. после подставим в метод*/
-
-    private SelenideElement getButtonElement(Integer year){
+    private SelenideElement getButtonElement(Integer year) {
         return container.$x(".//span[ contains(text()," + year + ")]");
     }
 
+    /**
+     * Выбрать год
+     */
+    private void chooseAYear(Integer year) {
+        if (year == Integer.parseInt(openTheListYear.getText())) {
+        } else {
+            openTheListYear.click();
+            getButtonElement(year).click();
+        }
+    }
 
+    private SelenideElement chooseAMonth(java.time.Month month) {
+        return container.$x(".//span[contains(text(), '" + Month.valueOf(month.toString()).getMonth() + "')]");
+    }
 
-    public HistoryOfOperationsInTheSystemPage history() {
-        /** Получаем дату*/
-        DateCalculation calculation = new DateCalculation();
-        LocalDate foundDate = calculation.calculateTheDate(100);
+    private SelenideElement chooseADay(Integer day) {
+        return container.$x(".//div[@class='datepicker-days']//td[contains(text()," + day + ")]");
+    }
+
+    /**
+     * начало периода
+     */
+    public HistoryOfOperationsInTheSystemPage history(LocalDate date) {
 
         /**Открыть календарь*/
         textInput.click();
         openTheListOfMonths.click();
 
-        if (foundDate.getYear() == Integer.parseInt(openTheListYear.getText())) {
-        } else {
-            openTheListYear.click();
-            getButtonElement(foundDate.getYear()).click();
-        }
+        /**выбор года*/
+        chooseAYear(date.getYear());
 
+        /**выбор месяц*/
+        chooseAMonth(date.getMonth()).click();
 
+        /**выбор дня месяца*/
+        chooseADay(date.getDayOfMonth()).click();
 
         return new HistoryOfOperationsInTheSystemPage();
     }
