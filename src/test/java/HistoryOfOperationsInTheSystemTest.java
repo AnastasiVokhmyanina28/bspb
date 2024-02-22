@@ -19,7 +19,8 @@ public class HistoryOfOperationsInTheSystemTest extends BaseClass implements Hea
                 .checkPageActivityHistory()
                 .selectBeginningOfPeriod(DateCalculation.calculateTheDate(100))
                 .selectEndOfPeriod(DateCalculation.calculateTheDate(0))
-                .downloadButtonClick();
+                .downloadButtonClick()
+                .checkDates(DateCalculation.calculateTheDate(100), DateCalculation.calculateTheDate(0));
     }
 
 }
