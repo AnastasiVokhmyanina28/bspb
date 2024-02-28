@@ -2,6 +2,7 @@ package pageObject.toolBar;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import pageObject.cardsPage.CardsPage;
 import pageObject.PaymentsPage;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -20,6 +21,11 @@ public interface Navbar {
     default PaymentsPage openThePaymentsTab(){
         payments.click();
         return new PaymentsPage();
+    }
+
+    default CardsPage openTheCardsTab(){
+        cards.click();
+        return new CardsPage();
     }
 
 
